@@ -1,0 +1,5 @@
+config BR2_PACKAGE_HOST_PUNCHBOOT_TOOLS
+	bool "host punchboot-tools"
+    select BR2_PACKAGE_HOST_LIBUSB
+	help
+        Host tools for the punchboot bootloader
