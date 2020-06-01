@@ -1,0 +1,10 @@
+config BR2_TARGET_PUNCHBOOT
+	bool "Punchboot"
+    depends on BR2_PACKAGE_HOST_BPAK
+    depends on BR2_PACKAGE_HOST_PYTHON3
+	help
+	  Build punchboot bootloader
+
+config BR2_PUNCHBOOT_DEFCONFIG
+    depends on BR2_TARGET_PUNCHBOOT
+    string "Punchboot configuration file"

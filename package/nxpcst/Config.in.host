@@ -1,0 +1,5 @@
+config BR2_PACKAGE_HOST_NXPCST
+	bool "NXP Code signing tool"
+    select BR2_PACKAGE_HOST_OPENSSL
+	help
+        NXP's Code Signing Tool (CST)

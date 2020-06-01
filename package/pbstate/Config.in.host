@@ -1,0 +1,4 @@
+config BR2_PACKAGE_HOST_PBSTATE
+	bool "host pbstate"
+	help
+        Host tools for punchboot pbstate

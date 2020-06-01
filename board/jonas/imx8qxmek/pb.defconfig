@@ -1,0 +1,92 @@
+
+#
+# Punchboot configuration
+#
+CONFIG_ARCH_ARMV8=y
+# CONFIG_ARCH_ARMV7 is not set
+CONFIG_PLAT_IMX8X=y
+# CONFIG_PLAT_IMX8M is not set
+CONFIG_BOARD_IMX8QXMEK=y
+CONFIG_EHCI_BASE=0x5b0d0000
+CONFIG_IMX_CAAM_BASE=0x31430000
+CONFIG_IMX_GPT_BASE=0x5D140000
+CONFIG_IMX_GPT_PR=24
+
+#
+# imx8x configuration
+#
+
+#
+# Console configuration
+#
+CONFIG_LPUART_BASE=0x5A060000
+CONFIG_LPUART_BAUDRATE=0x402008b
+
+#
+# USB Transport
+#
+
+#
+# CAAM
+#
+
+#
+# Generic timer
+#
+
+#
+# Output image
+#
+CONFIG_IMX8X_CREATE_IMX_IMAGE=y
+CONFIG_IMX8X_MKIMAGE_TOOL="../../host/bin/mkimage_imx8"
+CONFIG_IMX8X_SCFW_IMAGE="../../images/mx8qx-mek-scfw-tcm.bin"
+CONFIG_IMX8X_AHAB_IMAGE="../../images/ahab-container.img"
+CONFIG_IMX8X_SIGN_IMAGE=y
+CONFIG_IMX8X_CST_TOOL="../../host/bin/cst"
+CONFIG_IMX8X_SRK_TABLE="pki/imx8x_ahab/crts/SRK_1_2_3_4_table.bin"
+CONFIG_IMX8X_KEY_INDEX=0
+CONFIG_IMX8X_SIGN_CERT="pki/imx8x_ahab/crts/SRK1_sha384_secp384r1_v3_usr_crt.pem"
+# end of Output image
+# end of imx8x configuration
+
+CONFIG_TOOLCHAIN_PREFIX="../../host/bin/aarch64-buildroot-linux-musl-"
+CONFIG_KEYSTORE="pki/internal_keystore.bpak"
+CONFIG_LOGLEVEL=3
+CONFIG_ENABLE_WATCHDOG=y
+CONFIG_WATCHDOG_TIMEOUT=5
+# CONFIG_BEARSSL is not set
+
+#
+# Authentication
+#
+CONFIG_AUTH_TOKEN=y
+# CONFIG_AUTH_PASSWORD is not set
+# end of Authentication
+
+#
+# Boot configuration
+#
+
+#
+# Boot configuration
+#
+CONFIG_BOOT_AB=y
+CONFIG_BOOT_IMAGE_ID=0xa697d988
+CONFIG_BOOT_STATE_PRIMARY_UU="f5f8c9ae-efb5-4071-9ba9-d313b082281e"
+CONFIG_BOOT_STATE_BACKUP_UU="656ab3fc-5856-4a5e-a2ae-5a018313b3ee"
+CONFIG_BOOT_DT=y
+CONFIG_BOOT_DT_ID=0x56f91b86
+CONFIG_BOOT_RAMDISK=y
+CONFIG_BOOT_RAMDISK_ID=0xf4cdac1f
+CONFIG_BOOT_AB_A_UUID="2af755d8-8de5-45d5-a862-014cfa735ce0"
+CONFIG_BOOT_AB_B_UUID="c046ccd8-0f2e-4036-984d-76c14dc73992"
+# end of Boot configuration
+
+#
+# Command mode transport configuration
+#
+CONFIG_CMD_BUF_SIZE_KB=4096
+CONFIG_TRANSPORT_MAX_CHUNK_KB=4096
+CONFIG_LOAD_FS_MAX_CHUNK_KB=4096
+CONFIG_TRANSPORT_READY_TIMEOUT=10
+# end of Command mode transport configuration
