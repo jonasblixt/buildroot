@@ -12,5 +12,8 @@ BPAK_LICENSE = BSD-3-Clause
 BPAK_LICENSE_FILES = License.txt
 BPAK_AUTORECONF = YES
 
+BPAK_CONF_OPTS = \
+	--enable-static
+
 $(eval $(autotools-package))
 $(eval $(host-autotools-package))

@@ -1,0 +1,12 @@
+config BR2_TARGET_KICKSTART_INITRD
+	bool "Kickstart-initrd"
+    select BR2_PACKAGE_HOST_BPAK
+    select BR2_PACKAGE_UTIL_LINUX
+    select BR2_PACKAGE_UTIL_LINUX_LIBBLKID
+    select BR2_PACKAGE_UTIL_LINUX_LIBUUID
+	help
+        The kickstart initrd
+
+config BR2_KICKSTART_INITRD_KEYSTORE
+    depends on BR2_TARGET_KICKSTART_INITRD
+    string "Keystore bpak file"
