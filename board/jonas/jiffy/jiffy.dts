@@ -17,7 +17,7 @@
         active-system = "?";
         pb,boot-time = <0>;
         pb,slc = <0>;
-        pb,slc-available-keys = <0x00000000 0x00000000 0x00000000 0x00000000>;
+        pb,slc-available-keys = <>;
         pb,slc-active-key = <0x00000000>;
         stdout-path = &uart2;
 	};
