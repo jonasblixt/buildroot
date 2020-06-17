@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-NXPCST_VERSION = v0.1.3
+NXPCST_VERSION = v0.1.4
 NXPCST_SITE = https://github.com/jonasblixt/nxpcst.git
 NXPCST_SITE_METHOD = git
 NXPCST_INSTALL_STAGING = YES
