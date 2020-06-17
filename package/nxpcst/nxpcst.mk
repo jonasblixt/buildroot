@@ -11,5 +11,6 @@ NXPCST_INSTALL_STAGING = YES
 NXPCST_LICENSE = BSD-3-Clause
 NXPCST_LICENSE_FILES = License.txt
 NXPCST_AUTORECONF = YES
+HOST_NXPCST_DEPENDENCIES = host-openssl
 
 $(eval $(host-autotools-package))
