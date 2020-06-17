@@ -1,4 +1,4 @@
-PUNCHBOOT_VERSION = 97ae3387ee3b930ad8d8ad9e877281389589d2c1
+PUNCHBOOT_VERSION = v0.7.6
 PUNCHBOOT_SITE = https://github.com/jonasblixt/punchboot.git
 PUNCHBOOT_SITE_METHOD = git
 PUNCHBOOT_INSTALL_STAGING = YES
@@ -12,11 +12,24 @@ define PUNCHBOOT_CONFIGURE_CMDS
 endef
 
 define PUNCHBOOT_BUILD_CMDS
-	$(MAKE) -C $(@D)/
+	$(MAKE) -C $(@D)/ CROSS_COMPILE=$(TARGET_CROSS) \
+					  BOARD=$(BR2_PUNCHBOOT_BOARD) \
+					  CST_TOOL=$(HOST_DIR)/usr/bin/cst \
+					  MKIMAGE=$(HOST_DIR)/usr/bin/mkimage_imx8 \
+					  BPAK=$(HOST_DIR)/usr/bin/bpak \
+					  PYTHON=$(HOST_DIR)/usr/bin/python3 \
+					  KEYSTORE_BPAK=$(BR2_PUNCHBOOT_KEYSTORE)
 endef
 
 define PUNCHBOOT_INSTALL_IMAGES_CMDS
-	$(MAKE) -C $(@D)/ install INSTALL_DIR=$(BINARIES_DIR)
+	$(MAKE) -C $(@D)/ install   CROSS_COMPILE=$(TARGET_CROSS) \
+								BOARD=$(BR2_PUNCHBOOT_BOARD) \
+								CST_TOOL=$(HOST_DIR)/usr/bin/cst \
+								MKIMAGE=$(HOST_DIR)/usr/bin/mkimage_imx8 \
+								BPAK=$(HOST_DIR)/usr/bin/bpak \
+								PYTHON=$(HOST_DIR)/usr/bin/python3 \
+								KEYSTORE_BPAK=$(BR2_PUNCHBOOT_KEYSTORE) \
+								INSTALL_DIR=$(BINARIES_DIR)
 endef
 
 $(eval $(generic-package))

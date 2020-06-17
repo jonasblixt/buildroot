@@ -8,3 +8,11 @@ config BR2_TARGET_PUNCHBOOT
 config BR2_PUNCHBOOT_DEFCONFIG
     depends on BR2_TARGET_PUNCHBOOT
     string "Punchboot configuration file"
+
+config BR2_PUNCHBOOT_BOARD
+    depends on BR2_TARGET_PUNCHBOOT
+    string "Punchboot board directory"
+
+config BR2_PUNCHBOOT_KEYSTORE
+    depends on BR2_TARGET_PUNCHBOOT
+    string "Punchboot keystore file"
