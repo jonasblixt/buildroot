@@ -3,7 +3,6 @@
  */
 
 /dts-v1/;
-
 #include "imx6ul.dtsi"
 
 / {
@@ -11,12 +10,15 @@
 	compatible = "fsl,imx6ul-14x14-evk", "fsl,imx6ul";
 
 	chosen {
-        bootargs = "---------------------------------------------------------------------------------------------------------------------";
+        bootargs = "------------------------------------------------------------------------------------------------";
         linux,initrd-start = <0x00000000>;
         linux,initrd-end = <0x00000000>;
         device-uuid = "00000000-0000-0000-0000-000000000000";
         active-system = "?";
         pb,boot-time = <0>;
+        pb,slc = <0>;
+        pb,slc-available-keys = <0x00000000 0x00000000 0x00000000 0x00000000>;
+        pb,slc-active-key = <0x00000000>;
         stdout-path = &uart2;
 	};
 
