@@ -26,5 +26,8 @@
         device-uuid = "00000000-0000-0000-0000-000000000000";
         active-system = "?";
         pb,boot-time = <0>;
+        pb,slc = <0>;
+        pb,slc-available-keys = <>;
+        pb,slc-active-key = <0x00000000>;
     };
 };
