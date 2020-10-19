@@ -1,4 +1,4 @@
-PUNCHBOOT_VERSION = v0.7.6
+PUNCHBOOT_VERSION = 0.9-dev
 PUNCHBOOT_SITE = https://github.com/jonasblixt/punchboot.git
 PUNCHBOOT_SITE_METHOD = git
 PUNCHBOOT_INSTALL_STAGING = YES
@@ -18,7 +18,8 @@ define PUNCHBOOT_BUILD_CMDS
 					  MKIMAGE=$(HOST_DIR)/usr/bin/mkimage_imx8 \
 					  BPAK=$(HOST_DIR)/usr/bin/bpak \
 					  PYTHON=$(HOST_DIR)/usr/bin/python3 \
-					  KEYSTORE_BPAK=$(BR2_PUNCHBOOT_KEYSTORE)
+					  KEYSTORE_BPAK=$(shell readlink -f $(BR2_PUNCHBOOT_KEYSTORE)) \
+					  $(subst ",,$(BR2_PUNCHBOOT_EXTRA_OPTS))
 endef
 
 define PUNCHBOOT_INSTALL_IMAGES_CMDS
@@ -28,8 +29,9 @@ define PUNCHBOOT_INSTALL_IMAGES_CMDS
 								MKIMAGE=$(HOST_DIR)/usr/bin/mkimage_imx8 \
 								BPAK=$(HOST_DIR)/usr/bin/bpak \
 								PYTHON=$(HOST_DIR)/usr/bin/python3 \
-								KEYSTORE_BPAK=$(BR2_PUNCHBOOT_KEYSTORE) \
-								INSTALL_DIR=$(BINARIES_DIR)
+								KEYSTORE_BPAK=$(readlink -f $(BR2_PUNCHBOOT_KEYSTORE)) \
+								INSTALL_DIR=$(BINARIES_DIR) \
+								$(subst ",,$(BR2_PUNCHBOOT_EXTRA_OPTS))
 endef
 
 $(eval $(generic-package))

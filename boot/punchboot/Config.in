@@ -16,3 +16,7 @@ config BR2_PUNCHBOOT_BOARD
 config BR2_PUNCHBOOT_KEYSTORE
     depends on BR2_TARGET_PUNCHBOOT
     string "Punchboot keystore file"
+
+config BR2_PUNCHBOOT_EXTRA_OPTS
+    depends on BR2_TARGET_PUNCHBOOT
+    string "Punchboot extra build configuration"

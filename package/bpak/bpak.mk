@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BPAK_VERSION = v0.3.4
+BPAK_VERSION = v0.4.0
 BPAK_SITE = https://github.com/jonasblixt/bpak.git
 BPAK_SITE_METHOD = git
 BPAK_INSTALL_STAGING = YES

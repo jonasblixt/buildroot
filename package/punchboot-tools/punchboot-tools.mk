@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PUNCHBOOT_TOOLS_VERSION = v0.1.14
+PUNCHBOOT_TOOLS_VERSION = v0.2.0
 PUNCHBOOT_TOOLS_SITE = https://github.com/jonasblixt/punchboot-tools.git
 PUNCHBOOT_TOOLS_SITE_METHOD = git
 PUNCHBOOT_TOOLS_INSTALL_STAGING = YES
