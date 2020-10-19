@@ -34,16 +34,16 @@ endef
 KICKSTART_INITRD_POST_PATCH_HOOKS += KICKSTART_INITRD_CREATE_M4
 
 define KICKSTART_INITRD_INSTALL_TARGET_CMDS
-	rm -rf initrd
-	mkdir -p initrd/proc
-	mkdir -p initrd/sys
-	mkdir -p initrd/dev
-	mkdir -p initrd/tmp
-	mkdir -p initrd/newroot
-	mkdir -p initrd/data/tee
-	cp $(@D)/src/kickstart-initrd initrd/init
+	rm -rf $(@D)/initrd
+	mkdir -p $(@D)/initrd/proc
+	mkdir -p $(@D)/initrd/sys
+	mkdir -p $(@D)/initrd/dev
+	mkdir -p $(@D)/initrd/tmp
+	mkdir -p $(@D)/initrd/newroot
+	mkdir -p $(@D)/initrd/data/tee
+	cp $(@D)/src/kickstart-initrd $(@D)/initrd/init
 	mkdir -p $(BINARIES_DIR)
-	cd initrd && find . | cpio -H newc -o > $(BINARIES_DIR)/kickstart-initrd.cpio
+	cd $(@D)/initrd && find . | cpio -H newc -o > $(BINARIES_DIR)/kickstart-initrd.cpio
 endef
 
 $(eval $(autotools-package))
