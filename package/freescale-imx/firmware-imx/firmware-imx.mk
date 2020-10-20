@@ -49,6 +49,7 @@ define FIRMWARE_IMX_INSTALL_IMAGE_DDR_FW
 		$(FIRMWARE_IMX_DDRFW_DIR)/lpddr4_pmu_train_2d_fw.bin > \
 		$(BINARIES_DIR)/lpddr4_pmu_train_fw.bin
 	ln -sf $(BINARIES_DIR)/lpddr4_pmu_train_fw.bin $(BINARIES_DIR)/ddr_fw.bin
+	cp $(FIRMWARE_IMX_DDRFW_DIR)/lpddr4_pmu_train*.bin $(BINARIES_DIR)/
 endef
 endif
 
