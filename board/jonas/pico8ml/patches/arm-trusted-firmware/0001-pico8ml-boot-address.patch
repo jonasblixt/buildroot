@@ -1,0 +1,26 @@
+From 14d6852e952866eebe7fbc4e81e44ae56b394bd9 Mon Sep 17 00:00:00 2001
+From: Jonas Blixt <jonpe960@gmail.com>
+Date: Mon, 19 Oct 2020 21:57:11 +0200
+Subject: [PATCH] pico8ml boot address
+
+---
+ plat/imx/imx8mq/imx8mq_bl31_setup.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/plat/imx/imx8mq/imx8mq_bl31_setup.c b/plat/imx/imx8mq/imx8mq_bl31_setup.c
+index 155a11a60..5874e2fc4 100644
+--- a/plat/imx/imx8mq/imx8mq_bl31_setup.c
++++ b/plat/imx/imx8mq/imx8mq_bl31_setup.c
+@@ -292,7 +292,8 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
+ 	 * tell BL3-1 where the non-secure software image is located
+ 	 * and the entry state information.
+ 	 */
+-	bl33_image_ep_info.pc = PLAT_NS_IMAGE_OFFSET;
++	bl33_image_ep_info.pc = 0x43000000;
++    bl33_image_ep_info.args.arg0 = 0x42f00000;
+ 	bl33_image_ep_info.spsr = get_spsr_for_bl33_entry();
+ 	SET_SECURITY_STATE(bl33_image_ep_info.h.attr, NON_SECURE);
+ 
+-- 
+2.25.1
+

@@ -1,0 +1,24 @@
+From 3591a9961009b815adb79c4a0e1cd7b620c9e31c Mon Sep 17 00:00:00 2001
+From: Jonas Blixt <jonpe960@gmail.com>
+Date: Mon, 19 Oct 2020 22:10:53 +0200
+Subject: [PATCH] pico8ml: Enable debug output
+
+---
+ plat/imx/imx8mq/include/platform_def.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/plat/imx/imx8mq/include/platform_def.h b/plat/imx/imx8mq/include/platform_def.h
+index a25636e60..32ae24746 100644
+--- a/plat/imx/imx8mq/include/platform_def.h
++++ b/plat/imx/imx8mq/include/platform_def.h
+@@ -98,6 +98,6 @@
+ 
+ #define COUNTER_FREQUENCY		8000000 /* 8MHz */
+ 
+-#define DEBUG_CONSOLE			0
++#define DEBUG_CONSOLE			1
+ #define IMX_WDOG_B_RESET
+ #define PLAT_IMX8M			1
+-- 
+2.25.1
+
