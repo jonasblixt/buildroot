@@ -9,21 +9,22 @@
 	model = "Jiffy";
 	compatible = "fsl,imx6ul-14x14-evk", "fsl,imx6ul";
 
+	memory@80000000 {
+        device_type = "memory";
+		reg = <0x80000000 0x40000000>;
+	};
+
 	chosen {
         bootargs = "------------------------------------------------------------------------------------------------";
         linux,initrd-start = <0x00000000>;
         linux,initrd-end = <0x00000000>;
-        device-uuid = "00000000-0000-0000-0000-000000000000";
-        active-system = "?";
+        pb,device-uuid = "00000000-0000-0000-0000-000000000000";
+        pb,active-system = "?";
         pb,boot-time = <0>;
         pb,slc = <0>;
         pb,slc-available-keys = <>;
         pb,slc-active-key = <0x00000000>;
         stdout-path = &uart2;
-	};
-
-	memory {
-		reg = <0x80000000 0x40000000>;
 	};
 
 	regulators {

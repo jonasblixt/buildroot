@@ -50,9 +50,10 @@ gen_boot_bpak()
                    --from-file $BINARIES_DIR/zImage $V
 
     echo Signing...
-    $BPAK sign $IMG --key /work/punchboot/pki/secp256r1-key-pair.pem \
-                        --key-id pb-development \
-                        --key-store pb $V
+    $BPAK set $IMG --key-id pb-development \
+                   --keystore-id pb $V
+
+    $BPAK sign $IMG --key board/jonas/pki/secp256r1-key-pair.pem
 }
 
 gen_rootfs_bpak ()
@@ -85,9 +86,10 @@ gen_rootfs_bpak ()
                    --set-flag dont-hash \
                    --encoder merkle $V
 
-    $BPAK sign $ROOTFS_IMG --key /work/punchboot/pki/secp256r1-key-pair.pem \
-                        --key-id pb-development \
-                        --key-store pb-internal $V
+    $BPAK set $ROOTFS_IMG --key-id pb-development \
+                   --keystore-id pb-internal $V
+
+    $BPAK sign $ROOTFS_IMG --key board/jonas/pki/secp256r1-key-pair.pem
 }
 
 gen_boot_bpak $@
