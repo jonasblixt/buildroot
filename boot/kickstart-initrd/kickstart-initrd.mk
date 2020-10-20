@@ -4,10 +4,8 @@
 #
 ################################################################################
 
-#KICKSTART_INITRD_VERSION = v0.1.0
-#KICKSTART_INITRD_SITE = https://github.com/jonasblixt/kickstart-initrd.git
-KICKSTART_INITRD_VERSION=41811c4f1fc35214b5204bf11605098b2bac42fe
-KICKSTART_INITRD_SITE=/work/kickstart-initrd
+KICKSTART_INITRD_VERSION = 0.2-dev
+KICKSTART_INITRD_SITE = https://github.com/jonasblixt/kickstart-initrd.git
 KICKSTART_INITRD_SITE_METHOD = git
 KICKSTART_INITRD_INSTALL_STAGING = YES
 KICKSTART_INITRD_LICENSE = BSD-3-Clause
