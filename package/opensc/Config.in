@@ -1,0 +1,23 @@
+config BR2_PACKAGE_OPENSC
+ bool "opensc"
+ depends on BR2_TOOLCHAIN_HAS_THREADS # pcsc-lite, libusb
+ depends on BR2_USE_MMU # pcsc-lite
+ depends on BR2_USE_WCHAR # wprintf
+ depends on !BR2_STATIC_LIBS # pcsc-lite
+ select BR2_PACKAGE_LIBUSB
+ select BR2_PACKAGE_PCSC_LITE
+ help
+  Open source smart card tools and middleware.
+  OpenSC provides a set of libraries and utilities to work with smart
+  cards. Its main focus is on cards that support cryptographic
+  operations, and facilitate their use in security applications such as
+  authentication, mail encryption and digital signatures. OpenSC
+  implements the standard APIs to smart cards, e.g. PKCS#11 API,
+  Windows’ Smart Card Minidriver and macOS CryptoTokenKit.
+
+  https://github.com/OpenSC/OpenSC
+
+comment "opensc needs a toolchain w/ wchar threads, dynamic library"
+ depends on BR2_USE_MMU
+ depends on !BR2_TOOLCHAIN_HAS_THREADS || !BR2_USE_WCHAR \
+ || BR2_STATIC_LIBS
