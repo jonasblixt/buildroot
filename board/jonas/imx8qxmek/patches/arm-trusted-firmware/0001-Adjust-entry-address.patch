@@ -1,0 +1,44 @@
+From 465d04ff5c3e0cb4c4240ecd75853d7d4ddefda7 Mon Sep 17 00:00:00 2001
+From: Jonas Blixt <jonpe960@gmail.com>
+Date: Thu, 29 Oct 2020 09:17:32 +0100
+Subject: [PATCH] Adjust entry address
+
+---
+ plat/imx/imx8qx/imx8qx_bl31_setup.c    | 1 +
+ plat/imx/imx8qx/include/platform_def.h | 4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/plat/imx/imx8qx/imx8qx_bl31_setup.c b/plat/imx/imx8qx/imx8qx_bl31_setup.c
+index 7411f4367..a4e2835b3 100644
+--- a/plat/imx/imx8qx/imx8qx_bl31_setup.c
++++ b/plat/imx/imx8qx/imx8qx_bl31_setup.c
+@@ -441,6 +441,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
+ 
+ 	bl33_image_ep_info.pc = PLAT_NS_IMAGE_OFFSET;
+ 	bl33_image_ep_info.spsr = get_spsr_for_bl33_entry();
++    bl33_image_ep_info.args.arg0 = 0x80800000;
+ #if defined(SPD_opteed) || defined(SPD_trusty)
+ 	SET_PARAM_HEAD(&bl32_image_ep_info, PARAM_EP, VERSION_1, 0);
+ 	SET_SECURITY_STATE(bl32_image_ep_info.h.attr, SECURE);
+diff --git a/plat/imx/imx8qx/include/platform_def.h b/plat/imx/imx8qx/include/platform_def.h
+index debcdafb1..ba8928727 100644
+--- a/plat/imx/imx8qx/include/platform_def.h
++++ b/plat/imx/imx8qx/include/platform_def.h
+@@ -71,12 +71,12 @@
+ #define COUNTER_FREQUENCY		8000000
+ 
+ /* non-secure u-boot base */
+-#define PLAT_NS_IMAGE_OFFSET		0x80020000
++#define PLAT_NS_IMAGE_OFFSET		0x82000000
+ 
+ /* enable it to make debug message to SC console */
+ #define SC_CONSOLE			0
+ 
+-#define DEBUG_CONSOLE			0
++#define DEBUG_CONSOLE			1
+ 
+ #ifdef SPD_trusty
+ #define DEBUG_CONSOLE_A35		1
+-- 
+2.25.1
+

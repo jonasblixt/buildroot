@@ -1,0 +1,25 @@
+From 425ed6729851700f9fd99eb56fb864b690db53fb Mon Sep 17 00:00:00 2001
+From: Jonas Blixt <jonpe960@gmail.com>
+Date: Thu, 29 Oct 2020 09:23:36 +0100
+Subject: [PATCH] Adjust reset
+
+---
+ plat/imx/common/imx8_psci.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/plat/imx/common/imx8_psci.c b/plat/imx/common/imx8_psci.c
+index 5b53e62f3..1d258c325 100644
+--- a/plat/imx/common/imx8_psci.c
++++ b/plat/imx/common/imx8_psci.c
+@@ -23,7 +23,7 @@ void __dead2 imx_system_off(void)
+ 
+ void __dead2 imx_system_reset(void)
+ {
+-	sc_pm_reboot(ipc_handle, SC_PM_RESET_TYPE_COLD);
++	sc_pm_reboot(ipc_handle, SC_PM_RESET_TYPE_BOARD);
+ 	wfi();
+ 	ERROR("system reset failed.\n");
+ 	panic();
+-- 
+2.25.1
+

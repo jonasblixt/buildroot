@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PBSTATE_VERSION = v0.7.4
+PBSTATE_VERSION = v0.9.3
 PBSTATE_SITE = https://github.com/jonasblixt/punchboot.git
 PBSTATE_SITE_METHOD = git
 PBSTATE_INSTALL_STAGING = YES
