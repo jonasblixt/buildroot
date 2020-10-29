@@ -14,9 +14,12 @@
 
 /dts-v1/;
 
-#include "freescale/fsl-imx8qxp-mek.dtsi"
+#include "freescale/imx8qxp.dtsi"
+#include "freescale/imx8x-mek.dtsi"
 
 / {
+    model = "Freescale i.MX8QXP MEK";
+    compatible = "fsl,imx8qxp-mek", "fsl,imx8qxp";
 
     chosen {
         bootargs = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
