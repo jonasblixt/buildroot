@@ -2096,7 +2096,13 @@ CONFIG_NVMEM_IMX_SCU_OCOTP=y
 # CONFIG_INTEL_TH is not set
 # CONFIG_FPGA is not set
 # CONFIG_FSI is not set
-# CONFIG_TEE is not set
+CONFIG_TEE=y
+
+#
+# TEE drivers
+#
+CONFIG_OPTEE=y
+CONFIG_OPTEE_SHM_NUM_PRIV_PAGES=1
 CONFIG_PM_OPP=y
 # CONFIG_SIOX is not set
 # CONFIG_SLIMBUS is not set
